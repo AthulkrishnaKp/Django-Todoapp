@@ -1,0 +1,58 @@
+{%extends 'base.html'%}
+
+{%block body_block%}
+
+<div class="container">
+    <h2 align="center">{{request.user}}</h2>
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 text-center">
+            {%if messages%}
+                {%for msg in messages%}
+                    {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>{{msg}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endif %}
+                    {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{msg}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endif %}
+                {%endfor%}
+            {%endif%}
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table">
+                <tr>
+                    <th>id</th>
+                    <th>TaskName</th>
+                    <th>User</th>
+                    <th>Action</th>
+
+                </tr>
+                {%for task in todos%}
+                <tr>
+                    <td>{{task.id}}</td>
+                    <td>{{task.task_name}}</td>
+                    <td>{{task.user}}</td>
+                    <td>
+                        <a class="btn btn-info" href="{%url 'todo-detail' task.id%}">Detail</a>
+                        <a class="btn btn-warning" href="{%url 'todo-update' task.id%}">Edit</a>
+                        <a class="btn btn-danger" href="{%url 'todo-delete' task.id%}">Delete</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+{%endblock%}

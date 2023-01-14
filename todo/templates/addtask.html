@@ -1,0 +1,26 @@
+
+{%extends 'base.html'%}
+{%block body_block%}
+
+<div class="container">
+    <div style="height: 120px" class="row"></div>
+    <form action="" method="post">
+        {%csrf_token%}
+        <div class="row ms-5 me-5">
+            <H1 align="center" >Add Task</H1>
+            <div class="mb-3">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Add Tasks Here :</label>
+                <input class="form-control" name="task" id="exampleFormControlTextarea1" placeholder="+ add tasks" type="text">
+            </div>
+        </div>
+        <div class="text-center" >
+            <button class=" mt-5 btn " type="submit" role="button">Add To Task List</button>
+        </div>
+    </form>
+    <div style="height: 200px" class="row"></div>
+</div>
+
+
+{%endblock%}

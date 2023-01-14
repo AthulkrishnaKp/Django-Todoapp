@@ -1,0 +1,21 @@
+
+{%extends 'base.html'%}
+{%block body_block%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card" style="width: 18rem" >
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{todo.task_name}}</li>
+                    <li class="list-group-item">{{todo.user}}</li>
+                    <li class="list-group-item">{{todo.status}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+ 
+{%endblock%}
